@@ -14,7 +14,6 @@ import { format } from 'date-fns';
 export const Dashboard = () => {
   const { user } = useAuth();
   const [settings, setSettings] = useState<Settings>({});
-  const [settingsLoading, setSettingsLoading] = useState(true);
 
   useEffect(() => {
     const loadSettings = async () => {
@@ -23,8 +22,6 @@ export const Dashboard = () => {
         setSettings(userSettings);
       } catch (error) {
         console.error('Failed to load settings:', error);
-      } finally {
-        setSettingsLoading(false);
       }
     };
 
